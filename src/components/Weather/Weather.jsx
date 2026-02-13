@@ -1,5 +1,6 @@
 import styles from "./Weather.module.css";
 
+
 export const Weather = () => {
   return (
     <section className={styles.weather}>
@@ -18,8 +19,8 @@ export const Weather = () => {
               <p>Friday</p>
             </li>
           </ul>
-          <img src="" alt="" />
-          <h3>22</h3>
+          <img src="/images/sun.png" alt="sun" />
+          <h3>22°C</h3>
           <button type="button">See more</button>
         </li>
         <li>
@@ -36,8 +37,9 @@ export const Weather = () => {
               <p>Friday</p>
             </li>
           </ul>
-          <img src="" alt="" />
-          <h3>22</h3>
+          <img src="/images/sun.png" alt="sun" />
+
+          <h3>22°C</h3>
           <button type="button">See more</button>
         </li>
         <li>
@@ -54,8 +56,8 @@ export const Weather = () => {
               <p>Friday</p>
             </li>
           </ul>
-          <img src="" alt="" />
-          <h3>22</h3>
+          <img src="/images/sun.png" alt="sun" />
+          <h3>22°C</h3>
           <button type="button">See more</button>
         </li>
       </ul>

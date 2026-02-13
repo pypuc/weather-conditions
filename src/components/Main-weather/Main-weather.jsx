@@ -15,8 +15,8 @@ export const MainWeather = () => {
       <AllWeatherValues />
       <HourlyForecast />
       <EightDayForecast />
-      <BeautifulNature />
       <InteractingPets />
+      <BeautifulNature />
     </main>
   );
 };
