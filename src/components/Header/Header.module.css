@@ -1,8 +1,20 @@
-.header {
+header {
+    padding-top: 32px;
+    padding-bottom: 33px;
+}
+
+.header-container {
     display: flex;
 }
 
 .header-list {
     display: flex;
     gap: 45px;
+    margin-left: 111px;
+    align-items: center;
+    margin-right: 519px;
+}
+
+.header-singup {
+    margin-right: 27px;
 }

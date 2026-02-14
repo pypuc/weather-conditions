@@ -1,5 +1,8 @@
-/* .container {
-  max-width: 1200px;
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 1200px;
+  outline: solid red;
   margin: 0 auto;
-  padding: 0 15px;
-} */
+}
