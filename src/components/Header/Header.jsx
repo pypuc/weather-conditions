@@ -3,8 +3,9 @@ import styles from "./Header.module.css";
 export const Header = () => {
   return (
     <header className={styles.header}>
+      <div className="container"></div>
       <img src="/images/24-forecast.svg" alt="24-forecast" />
-      <ul>
+      <ul className={styles["header-list"]}>
         <li>Who we are</li>
         <li>Contacts</li>
         <li>Menu</li>

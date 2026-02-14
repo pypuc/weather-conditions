@@ -1,0 +1,8 @@
+.header {
+    display: flex;
+}
+
+.header-list {
+    display: flex;
+    gap: 45px;
+}
