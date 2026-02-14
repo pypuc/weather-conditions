@@ -1,0 +1,129 @@
+.weather {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.weather-list {
+  display: flex;
+  gap: 90px;
+  justify-content: center;
+}
+
+.weather-iteam {
+  background-color: #e8e8e8;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-top: 21px;
+  height: 430px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-minitextcont {
+  display: flex;
+  justify-content: space-between;
+  gap: 98px;
+}
+
+.weather-textname {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.weather-title-time {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.weather-mini-list {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 15px;
+  margin-bottom: 22px;
+}
+
+.weather-divforecast {
+  display: flex;
+  gap: 25px;
+}
+
+.weather-forecast {
+  background-color: #ffb36c;
+  border: none;
+  width: 117px;
+  height: 28px;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-right: 18px;
+  padding-bottom: 8px;
+  padding-left: 18px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-image {
+  width: 120px;
+  height: 120px;
+}
+
+.weather-data {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+.weather-temp {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-top: 15px;
+  margin-bottom: 39px;
+}
+
+.weather-list-svg {
+    display: flex;
+    gap: 20px;
+}
+
+.weather-but {
+  border: none;
+  background-color: #ffb36c;
+  width: 99;
+  height: 28;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-right: 25px;
+  padding-bottom: 8px;
+  padding-left: 25px;
+}

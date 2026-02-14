@@ -3,6 +3,7 @@ import styles from "./Interacting-pets.module.css";
 export const InteractingPets = () => {
   return (
     <section className={styles.wrapper}>
+      <div className="container">
       <h2>Interacting with our pets</h2>
       <ul>
         <li>
@@ -23,6 +24,7 @@ export const InteractingPets = () => {
         </li>
         <button>See more</button>
       </ul>
+      </div>
     </section>
   );
 };

@@ -3,6 +3,7 @@ import styles from "./Footer.module.css";
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
+      <div className="container">
       <img src="/images/24-forecast.svg" alt="24-forecast" />
       <ul>
         <li>
@@ -30,6 +31,7 @@ export const Footer = () => {
           </ul>
         </li>
       </ul>
+      </div>
     </footer>
   );
 };

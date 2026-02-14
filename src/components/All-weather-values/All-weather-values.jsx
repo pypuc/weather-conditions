@@ -3,6 +3,7 @@ import styles from "./All-weather-values.module.css";
 export const AllWeatherValues = () => {
   return (
     <section className={styles.wrapper}>
+      <div className="container">
       <ul>
         <li>
           <p>Feels like</p>
@@ -36,6 +37,7 @@ export const AllWeatherValues = () => {
           <img src="/images/visibility.png" alt="visibility" />
         </li>
       </ul>
+      </div>
     </section>
   );
 };
