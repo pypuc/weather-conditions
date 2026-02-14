@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(0,0,0,0.5);
+    background-blend-mode: darken;
 }
 
 .hero-container {
@@ -53,8 +55,21 @@
   color: #ffffff;
 }
 
+/* .hero-search-container {
+  display: flex;
+}
+
+.minik {
+  background-color: #FFB36C;
+  width: 45px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  } */
+
 .hero-input {
-    width: 625px;
+    width: 580px;
 height: 42px;
 border-radius: 10px;
 border: none;

@@ -19,11 +19,16 @@ export const Hero = () => {
               </p>
             </li>
           </ul>
-          <input
-            placeholder="Search location..."
-            type="text"
-            className={styles["hero-input"]}
-          />
+          <div className={styles["hero-search-container"]}>
+            <input
+              placeholder="Search location..."
+              type="text"
+              className={styles["hero-input"]}
+            />
+            <div className={styles.minik}>
+              <img src="/images/search.svg" alt="search" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

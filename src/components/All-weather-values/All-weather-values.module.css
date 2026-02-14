@@ -1,0 +1,17 @@
+.wrapper {
+   
+}
+
+.wrapper-container {
+    background-color: #E8E8E8;
+ padding-top: 40px;
+ padding-left: 77px;
+ padding-right: 77px;
+ padding-bottom: 40px;
+ border-radius: 20px;
+}
+
+.wrapper-list {
+    display: flex;
+    gap: 58px;
+}
