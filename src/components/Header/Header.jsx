@@ -8,13 +8,13 @@ export const Header = () => {
           <img src="/images/24-forecast.svg" alt="24-forecast" />
           <ul className={styles["header-list"]}>
             <li>
-              <p className={styles["header-share"]}>Who we are</p>
+              <a href="" className={styles["header-share"]}>Who we are</a>
             </li>
             <li>
-              <p className={styles["header-share"]}>Contacts</p>
+              <a href="" className={styles["header-share"]}>Contacts</a>
             </li>
             <li>
-              <p className={styles["header-share"]}>Menu</p>
+              <a href="" className={styles["header-share"]}>Menu</a>
             </li>
           </ul>
           <div className={styles["header-mincont"]}>

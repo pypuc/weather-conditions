@@ -6,6 +6,7 @@ import { AllWeatherValues } from "../All-weather-values/All-weather-values";
 import { HourlyForecast } from "../Hourly-forecast/Hourly-forecast";
 import { InteractingPets } from "../Interacting-pets/Interacting-pets";
 import { BeautifulNature } from "../Beautiful-nature/Beautiful-nature";
+// import { SignUp } from "../Sign-up/Sign-up";
 
 export const MainWeather = () => {
   return (
@@ -17,6 +18,7 @@ export const MainWeather = () => {
       <EightDayForecast />
       <InteractingPets />
       <BeautifulNature />
+      {/* <SignUp/> */}
     </main>
   );
 };

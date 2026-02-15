@@ -1,0 +1,48 @@
+.eight-day {
+    padding-bottom: 80px;
+}
+
+.eight-day-bigcontainer {
+    background-color: #E8E8E8;
+    border-radius: 20px;
+    padding-left: 76px;
+    height: 554px;
+    padding-top: 26px;
+    padding-bottom: 42px;
+    padding-right: 78px;
+}
+
+.eight-day-title {
+    font-family: Montserrat;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+margin-bottom: 20px;
+}
+
+.eight-day-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.eight-day-iteam {
+    display: flex;
+        background-color: #D9D9D9;
+        align-items: center;
+        border-radius: 10px;
+        justify-content: center;
+        gap: 270px;
+}
+
+.eight-day-minicon {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.eight-day-miniminic {
+    width: 135px;
+}

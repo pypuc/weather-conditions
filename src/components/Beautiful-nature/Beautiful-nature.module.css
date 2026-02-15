@@ -1,0 +1,23 @@
+.nature {
+    padding-bottom: 48px;
+}
+
+.nature-title {
+    font-family: Montserrat;
+font-weight: 500;
+font-style: Medium;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+
+.nature-container {
+    display: flex;
+    justify-content: center;
+}
+
+.nature-img {
+    width: 942;
+height: 211;
+}
