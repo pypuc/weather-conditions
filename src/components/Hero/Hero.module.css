@@ -1,11 +1,12 @@
 .hero {
   background-image: url(/public/images/evening.png);
-  height: 595px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: rgba(0,0,0,0.5);
     background-blend-mode: darken;
+    padding-bottom: 40px;
 }
 
 .hero-container {
@@ -16,19 +17,34 @@
 }
 
 .hero-title {
+  text-align: center;
   font-family: Montserrat;
   font-weight: 600;
   font-style: SemiBold;
-  font-size: 40px;
+  font-size: 14px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #ffffff;
   margin-bottom: 80px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 40px;
+  }
 }
 
 .hero-list {
   display: flex;
-  gap: 52px;
+  row-gap: 20px;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    gap: 68px;
+    flex-direction: row;
+  }
+  @media screen and (min-width: 1200px) {
+    gap: 104px;
+  }
 }
 
 .hero-text {
@@ -75,4 +91,6 @@ border-radius: 10px;
 border: none;
 margin-top: 137px;
 padding-left: 29px;
+background-color: #D9D9D9;
 }
+
