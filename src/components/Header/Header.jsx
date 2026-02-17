@@ -1,11 +1,12 @@
 import styles from "./Header.module.css";
 
-export const Header = () => {
+export const Header = ({ openModal }) => {
   return (
-    <header className={styles.header}>
+    <header>
       <div className="container">
         <div className={styles["header-container"]}>
           <img src="/images/24-forecast.svg" alt="24-forecast" />
+
           <ul className={styles["header-list"]}>
             <li>
               <a href="" className={styles["header-share"]}>
@@ -23,15 +24,21 @@ export const Header = () => {
               </a>
             </li>
           </ul>
+
           <div className={styles["header-mincont"]}>
-            <button type="button" className={styles["header-singup"]}>
+            <button
+              type="button"
+              className={styles["header-singup"]}
+              onClick={openModal}
+            >
               Sign Up
             </button>
           </div>
+
           <img
             className={styles["header-us"]}
             src="/images/user.svg"
-            alt="24-forecast"
+            alt="user"
           />
         </div>
       </div>
