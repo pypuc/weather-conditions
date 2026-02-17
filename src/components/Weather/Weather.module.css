@@ -12,50 +12,102 @@
 .weather-iteam {
   background-color: #e8e8e8;
   border-radius: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 15px;
-  padding-top: 21px;
-  height: 430px;
-  width: 320px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  height: 392px;
+  width: 293px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    width: 262px;
+    height: 352px;
+    padding-top: 12px;
+    padding-left: 17px;
+  padding-right: 17px;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 430px;
+    width: 320px;
+     padding-left: 20px;
+  padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .weather-iteam:nth-child(2) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .weather-iteam:nth-child(2) {
+    display: none;
+  }
+  .weather-iteam:nth-child(3) {
+    display: none;
+  }
 }
 
 .weather-minitextcont {
   display: flex;
   justify-content: space-between;
-  gap: 98px;
+  gap: 124px;
+  @media screen and (min-width: 768px) {
+    gap: 73px;
+  }
+  @media screen and (min-width: 1200px) {
+    gap: 98px;
+  }
 }
 
 .weather-textname {
   font-family: Montserrat;
   font-weight: 500;
   font-style: Medium;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 100%;
   letter-spacing: 0%;
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+  }
 }
 
 .weather-title-time {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 10px;
   font-family: Montserrat;
   font-weight: 500;
   font-style: Medium;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 100%;
   letter-spacing: 0%;
+  @media screen and (min-width: 768px) {
+    margin-top: 11px;
+    margin-bottom: 8px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 24px;
+    margin-top: 15px;
+  }
 }
 
 .weather-mini-list {
   display: flex;
   justify-content: center;
   gap: 26px;
-  margin-top: 15px;
-  margin-bottom: 22px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+   @media screen and (min-width: 768px) {
+    margin-bottom: 27px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 15px;
+    margin-bottom: 22px;
+  }
 }
 
 .weather-divforecast {
@@ -66,9 +118,9 @@
 .weather-forecast {
   background-color: #ffb36c;
   border: none;
-  width: 117px;
-  height: 28px;
-  border-radius: 10px;
+  width: 96px;
+  height: 23px;
+  border-radius: 5px;
   padding-top: 8px;
   padding-right: 18px;
   padding-bottom: 8px;
@@ -76,54 +128,101 @@
   font-family: Montserrat;
   font-weight: 500;
   font-style: Medium;
-  font-size: 10px;
+  font-size: 9px;
   line-height: 100%;
   letter-spacing: 0%;
   text-align: right;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  @media screen and (min-width: 1200px) {
+    width: 117px;
+    height: 28px;
+    font-size: 10px;
+     border-radius: 10px;
+  }
 }
 
 .weather-image {
-  width: 120px;
-  height: 120px;
+  width: 83px;
+  height: 83px;
+  @media screen and (min-width: 768px) {
+    width: 76px;
+    height: 76px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .weather-data {
   font-family: Montserrat;
   font-weight: 500;
   font-style: Medium;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 100%;
   letter-spacing: 0%;
   text-align: right;
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+  }
 }
 
 .weather-temp {
   font-family: Montserrat;
   font-weight: 500;
   font-style: Medium;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
-  margin-top: 15px;
+  margin-top: 25px;
+  margin-bottom: 44px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 35px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 32px;
+    margin-top: 15px;
   margin-bottom: 39px;
+  }
 }
 
 .weather-list-svg {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .weather-but {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 9px;
+  line-height: 100%;
+  letter-spacing: 0%;
   border: none;
   background-color: #ffb36c;
-  width: 99;
-  height: 28;
-  border-radius: 10px;
+  width: 84px;
+  height: 27px;
+  border-radius: 5px;
   padding-top: 8px;
-  padding-right: 25px;
+  padding-right: 20px;
   padding-bottom: 8px;
-  padding-left: 25px;
+  padding-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 81px;
+    height: 23px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 99px;
+    height: 28px;
+    font-size: 10px;
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }

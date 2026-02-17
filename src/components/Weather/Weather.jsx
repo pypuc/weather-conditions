@@ -28,11 +28,19 @@ export const Weather = () => {
                 <p className={styles["weather-data"]}>Friday</p>
               </li>
             </ul>
-            <img src="/images/weather-sun.svg" alt="sun" />
+            <img
+              className={styles["weather-image"]}
+              src="/images/weather-sun.svg"
+              alt="sun"
+            />
             <h3 className={styles["weather-temp"]}>22°C</h3>
             <ul className={styles["weather-list-svg"]}>
               <li>
-                <img src="/images/refresh.svg" alt="refresh" />
+                <img
+                  className={styles["weather-list-svg"]}
+                  src="/images/refresh.svg"
+                  alt="refresh"
+                />
               </li>
               <li>
                 <img src="/images/heart.svg" alt="heart" />
@@ -114,7 +122,11 @@ export const Weather = () => {
                 <p className={styles["weather-data"]}>Friday</p>
               </li>
             </ul>
-            <img src="/images/weather-sun.svg" alt="sun" />
+            <img
+              className={styles["weather-image"]}
+              src="/images/weather-sun.svg"
+              alt="sun"
+            />
             <h3 className={styles["weather-temp"]}>22°C</h3>
             <ul className={styles["weather-list-svg"]}>
               <li>

@@ -1,5 +1,8 @@
 .pets {
     padding-bottom: 80px;
+    @media screen and (max-width: 1200px) {
+   display: none;
+  }
 }
 
 .pets-title {
