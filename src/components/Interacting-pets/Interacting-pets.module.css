@@ -16,15 +16,17 @@ margin-bottom: 40px;
 }
 
 .pets-list {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .pets-iteam {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 }
 
 .pets-img {
