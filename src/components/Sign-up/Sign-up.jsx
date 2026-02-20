@@ -1,6 +1,18 @@
+import { useState } from "react";
 import styles from "./Sign-up.module.css";
 
-export const SignUp = ({ closeModal }) => {
+export const SignUp = ({ closeModal, setUser }) => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    const userData = { username, email };
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
+    closeModal();
+  };
+
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
@@ -21,6 +33,8 @@ export const SignUp = ({ closeModal }) => {
                 className={styles["modal-input"]}
                 placeholder="Username"
                 type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </li>
             <li className={styles["modal-iteam"]}>
@@ -29,6 +43,8 @@ export const SignUp = ({ closeModal }) => {
                 className={styles["modal-input"]}
                 placeholder="E-Mail"
                 type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </li>
             <li className={styles["modal-iteam"]}>
@@ -37,10 +53,14 @@ export const SignUp = ({ closeModal }) => {
                 className={styles["modal-input"]}
                 placeholder="Password"
                 type="text"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </li>
           </ul>
-          <button className={styles["modal-button"]}>Sign up</button>
+          <button className={styles["modal-button"]} onClick={handleSubmit}>
+            Sign up
+          </button>
           <p className={styles["modal-acount-text"]}>
             Already have an account?{" "}
             <a className={styles["modal-link-login"]} href="">

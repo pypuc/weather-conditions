@@ -8,13 +8,15 @@ import { InteractingPets } from "../Interacting-pets/Interacting-pets";
 import { BeautifulNature } from "../Beautiful-nature/Beautiful-nature";
 
 export const MainWeather = ({ cities, onSearch }) => {
+  const firstCity = cities.length > 0 ? cities[0] : null;
+
   return (
     <main className={styles.main}>
       <Hero onSearch={onSearch} />
 
       <Weather cities={cities} />
 
-      <AllWeatherValues city={cities[0]} />
+      {firstCity && <AllWeatherValues city={firstCity} />}
 
       <HourlyForecast />
       <EightDayForecast />

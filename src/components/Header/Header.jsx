@@ -1,6 +1,30 @@
 import styles from "./Header.module.css";
 
-export const Header = ({ openModal }) => {
+export const Header = ({ openModal, openLogout, user }) => {
+  let authBlock;
+
+  if (user) {
+    authBlock = (
+      <button
+        type="button"
+        className={styles["header-singup"]}
+        onClick={openLogout}
+      >
+        {user.username}
+      </button>
+    );
+  } else {
+    authBlock = (
+      <button
+        type="button"
+        className={styles["header-singup"]}
+        onClick={openModal}
+      >
+        Sign Up
+      </button>
+    );
+  }
+
   return (
     <header>
       <div className="container">
@@ -25,15 +49,7 @@ export const Header = ({ openModal }) => {
             </li>
           </ul>
 
-          <div className={styles["header-mincont"]}>
-            <button
-              type="button"
-              className={styles["header-singup"]}
-              onClick={openModal}
-            >
-              Sign Up
-            </button>
-          </div>
+          <div className={styles["header-mincont"]}>{authBlock}</div>
 
           <img
             className={styles["header-us"]}

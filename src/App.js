@@ -3,14 +3,28 @@ import { Header } from "./components/Header/Header";
 import { MainWeather } from "./components/Main-weather/Main-weather";
 import { Footer } from "./components/Footer/Footer";
 import { SignUp } from "./components/Sign-up/Sign-up";
+import { LogoutModal } from "./components/Logout-modal/Logout-modal";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLogoutOpen, setIsLogoutOpen] = useState(false);
   const [cities, setCities] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
-  }, [isModalOpen]);
+    if (isModalOpen || isLogoutOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isModalOpen, isLogoutOpen]);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
 
   useEffect(() => {
     getWeather("Kyiv");
@@ -22,7 +36,6 @@ function App() {
     );
 
     const data = await response.json();
-
     handleSearch(data);
   }
 
@@ -33,17 +46,46 @@ function App() {
       );
 
       const newList = [weatherData, ...withoutDuplicates];
-
       return newList.slice(0, 3);
     });
   };
 
+  function handleLogout() {
+    localStorage.removeItem("user");
+    setUser(null);
+    setIsLogoutOpen(false);
+  }
+
+  let signUpModal = null;
+  if (isModalOpen) {
+    signUpModal = (
+      <SignUp closeModal={() => setIsModalOpen(false)} setUser={setUser} />
+    );
+  }
+
+  let logoutModal = null;
+  if (isLogoutOpen) {
+    logoutModal = (
+      <LogoutModal
+        closeModal={() => setIsLogoutOpen(false)}
+        logout={handleLogout}
+      />
+    );
+  }
+
   return (
     <>
-      <Header openModal={() => setIsModalOpen(true)} />
+      <Header
+        openModal={() => setIsModalOpen(true)}
+        openLogout={() => setIsLogoutOpen(true)}
+        user={user}
+      />
+
       <MainWeather cities={cities} onSearch={handleSearch} />
       <Footer />
-      {isModalOpen && <SignUp closeModal={() => setIsModalOpen(false)} />}
+
+      {signUpModal}
+      {logoutModal}
     </>
   );
 }
