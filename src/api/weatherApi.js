@@ -5,8 +5,12 @@ export const fetchCurrentWeather = async (city) => {
   const response = await fetch(
     `${BASE_URL}/weather?q=${city}&units=metric&appid=${API_KEY}`,
   );
+  return await response.json();
+};
 
-  const data = await response.json();
-
-  return data;
+export const fetchHourlyForecast = async (city) => {
+  const response = await fetch(
+    `${BASE_URL}/forecast?q=${city}&units=metric&appid=${API_KEY}`,
+  );
+  return await response.json();
 };

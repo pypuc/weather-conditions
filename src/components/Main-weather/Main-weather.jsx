@@ -7,8 +7,8 @@ import { EightDayForecast } from "../Eight-day-forecast/Eight-day-forecast";
 import { InteractingPets } from "../Interacting-pets/Interacting-pets";
 import { BeautifulNature } from "../Beautiful-nature/Beautiful-nature";
 
-export const MainWeather = ({ cities, onSearch }) => {
-  const firstCity = cities.length > 0 ? cities[0] : null;
+export const MainWeather = ({ cities, onSearch, hourlyData }) => {
+  const firstCity = cities[0];
 
   return (
     <main className={styles.main}>
@@ -18,9 +18,12 @@ export const MainWeather = ({ cities, onSearch }) => {
 
       {firstCity && <AllWeatherValues city={firstCity} />}
 
-      <HourlyForecast />
+      <HourlyForecast hourlyData={hourlyData} />
+
       <EightDayForecast />
+
       <InteractingPets />
+
       <BeautifulNature />
     </main>
   );

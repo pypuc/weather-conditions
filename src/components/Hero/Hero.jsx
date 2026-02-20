@@ -1,19 +1,16 @@
 import { useState } from "react";
 import styles from "./Hero.module.css";
-import { fetchCurrentWeather } from "../../api/weatherApi";
 
 export const Hero = ({ onSearch }) => {
   const [city, setCity] = useState("");
 
-  const handleSearch = async () => {
+  const handleSearch = () => {
     const trimmedCity = city.trim();
     if (trimmedCity === "") return;
-    const data = await fetchCurrentWeather(trimmedCity);
-    onSearch(data);
+
+    onSearch(trimmedCity); // 🔥 передаємо РЯДОК
     setCity("");
   };
-
-
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -26,6 +23,7 @@ export const Hero = ({ onSearch }) => {
       <div className="container">
         <div className={styles["hero-container"]}>
           <h1 className={styles["hero-title"]}>Weather dashboard</h1>
+
           <ul className={styles["hero-list"]}>
             <li className={styles["hero-iteam"]}>
               <p className={styles["hero-text"]}>
@@ -39,6 +37,7 @@ export const Hero = ({ onSearch }) => {
               </p>
             </li>
           </ul>
+
           <div className={styles["hero-search-container"]}>
             <input
               value={city}
