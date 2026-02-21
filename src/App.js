@@ -13,7 +13,6 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
-  // стартове місто
   useEffect(() => {
     getWeather("Kyiv");
   }, []);
@@ -21,21 +20,24 @@ function App() {
   async function getWeather(cityName) {
     try {
       const weatherData = await fetchCurrentWeather(cityName);
-
-      // якщо місто не знайдено — просто нічого не робимо
-      if (!weatherData || !weatherData.sys) return;
+    if (weatherData == null || weatherData.id == null) return;
 
       setCities((prev) => {
-        const filtered = prev.filter((c) => c.id !== weatherData.id);
+        const filtered = prev.filter((dat) => dat.id !== weatherData.id);
         return [weatherData, ...filtered].slice(0, 3);
       });
 
       const forecastData = await fetchHourlyForecast(cityName);
 
-      if (!forecastData || !forecastData.list) return;
+     if (forecastData == null || forecastData.list == null) return;
+
+      const now = new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
 
       const formatted = forecastData.list.slice(0, 8).map((item) => ({
-        time: item.dt_txt.slice(11, 16),
+        time: now,
         temp: item.main.temp,
       }));
 

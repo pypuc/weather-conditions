@@ -22,7 +22,9 @@ export const Weather = ({ cities }) => {
       <div className="container">
         <ul className={styles["weather-list"]}>
           {cities.map((city) => {
-            const localTime = new Date((city.dt + city.timezone) * 1000);
+            const utcNow = Date.now() + new Date().getTimezoneOffset() * 60000;
+
+            const localTime = new Date(utcNow + city.timezone * 1000);
 
             const date = localTime.toLocaleDateString();
             const day = localTime.toLocaleDateString("en-US", {
