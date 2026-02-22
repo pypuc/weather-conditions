@@ -1,6 +1,6 @@
 import styles from "./Weather.module.css";
 
-export const Weather = ({ cities }) => {
+export const Weather = ({ cities, onSeeMore }) => {
   if (!cities || cities.length === 0) {
     return (
       <section className={styles.weather}>
@@ -23,7 +23,6 @@ export const Weather = ({ cities }) => {
         <ul className={styles["weather-list"]}>
           {cities.map((city) => {
             const utcNow = Date.now() + new Date().getTimezoneOffset() * 60000;
-
             const localTime = new Date(utcNow + city.timezone * 1000);
 
             const date = localTime.toLocaleDateString();
@@ -46,15 +45,6 @@ export const Weather = ({ cities }) => {
                 </div>
 
                 <h3 className={styles["weather-title-time"]}>{time}</h3>
-
-                <div className={styles["weather-divforecast"]}>
-                  <button className={styles["weather-forecast"]} type="button">
-                    Hourly forecast
-                  </button>
-                  <button className={styles["weather-forecast"]} type="button">
-                    Weekly forecast
-                  </button>
-                </div>
 
                 <ul className={styles["weather-mini-list"]}>
                   <li>
@@ -83,7 +73,11 @@ export const Weather = ({ cities }) => {
                     <img src="/images/heart.svg" alt="heart" />
                   </li>
                   <li>
-                    <button className={styles["weather-but"]} type="button">
+                    <button
+                      className={styles["weather-but"]}
+                      type="button"
+                      onClick={onSeeMore}
+                    >
                       See more
                     </button>
                   </li>

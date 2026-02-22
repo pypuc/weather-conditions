@@ -11,6 +11,7 @@ function App() {
   const [hourlyData, setHourlyData] = useState([]);
   const [eightDayData, setEightDayData] = useState([]);
   const [user, setUser] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
@@ -31,7 +32,6 @@ function App() {
       const forecastData = await fetchHourlyForecast(cityName);
       if (!forecastData || !forecastData.list) return;
 
-      // ===== HOURLY =====
       const formattedHourly = forecastData.list.slice(0, 8).map((item) => ({
         time: item.dt_txt.slice(11, 16),
         temp: Math.round(item.main.temp),
@@ -39,7 +39,6 @@ function App() {
 
       setHourlyData(formattedHourly);
 
-      // ===== 8 DAYS =====
       const dailyMap = {};
 
       forecastData.list.forEach((item) => {
@@ -74,6 +73,8 @@ function App() {
         }));
 
       setEightDayData(formattedDaily);
+
+      setShowDetails(false);
     } catch (error) {
       console.error(error);
     }
@@ -81,6 +82,7 @@ function App() {
 
   function handleLogout() {
     setUser(null);
+    setShowDetails(false);
     setIsLogoutOpen(false);
   }
 
@@ -97,6 +99,10 @@ function App() {
         onSearch={getWeather}
         hourlyData={hourlyData}
         eightDayData={eightDayData}
+        user={user}
+        showDetails={showDetails}
+        setShowDetails={setShowDetails}
+        openModal={() => setIsModalOpen(true)}
       />
 
       <Footer />
