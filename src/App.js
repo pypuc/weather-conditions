@@ -9,6 +9,7 @@ import { fetchCurrentWeather, fetchHourlyForecast } from "./api/weatherApi";
 function App() {
   const [cities, setCities] = useState([]);
   const [hourlyData, setHourlyData] = useState([]);
+  const [eightDayData, setEightDayData] = useState([]);
   const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLogoutOpen, setIsLogoutOpen] = useState(false);
@@ -20,7 +21,7 @@ function App() {
   async function getWeather(cityName) {
     try {
       const weatherData = await fetchCurrentWeather(cityName);
-    if (weatherData == null || weatherData.id == null) return;
+      if (!weatherData || !weatherData.id) return;
 
       setCities((prev) => {
         const filtered = prev.filter((dat) => dat.id !== weatherData.id);
@@ -28,20 +29,51 @@ function App() {
       });
 
       const forecastData = await fetchHourlyForecast(cityName);
+      if (!forecastData || !forecastData.list) return;
 
-     if (forecastData == null || forecastData.list == null) return;
-
-      const now = new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-
-      const formatted = forecastData.list.slice(0, 8).map((item) => ({
-        time: now,
-        temp: item.main.temp,
+      // ===== HOURLY =====
+      const formattedHourly = forecastData.list.slice(0, 8).map((item) => ({
+        time: item.dt_txt.slice(11, 16),
+        temp: Math.round(item.main.temp),
       }));
 
-      setHourlyData(formatted);
+      setHourlyData(formattedHourly);
+
+      // ===== 8 DAYS =====
+      const dailyMap = {};
+
+      forecastData.list.forEach((item) => {
+        const date = item.dt_txt.split(" ")[0];
+
+        if (!dailyMap[date]) {
+          dailyMap[date] = {
+            min: item.main.temp_min,
+            max: item.main.temp_max,
+            description: item.weather[0].description,
+            icon: item.weather[0].icon,
+            dt: item.dt,
+          };
+        } else {
+          dailyMap[date].min = Math.min(dailyMap[date].min, item.main.temp_min);
+          dailyMap[date].max = Math.max(dailyMap[date].max, item.main.temp_max);
+        }
+      });
+
+      const formattedDaily = Object.values(dailyMap)
+        .slice(0, 8)
+        .map((day) => ({
+          date: new Date(day.dt * 1000).toLocaleDateString("en-US", {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          }),
+          min: Math.round(day.min),
+          max: Math.round(day.max),
+          description: day.description,
+          icon: day.icon,
+        }));
+
+      setEightDayData(formattedDaily);
     } catch (error) {
       console.error(error);
     }
@@ -64,6 +96,7 @@ function App() {
         cities={cities}
         onSearch={getWeather}
         hourlyData={hourlyData}
+        eightDayData={eightDayData}
       />
 
       <Footer />

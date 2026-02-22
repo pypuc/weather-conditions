@@ -7,7 +7,7 @@ import { EightDayForecast } from "../Eight-day-forecast/Eight-day-forecast";
 import { InteractingPets } from "../Interacting-pets/Interacting-pets";
 import { BeautifulNature } from "../Beautiful-nature/Beautiful-nature";
 
-export const MainWeather = ({ cities, onSearch, hourlyData }) => {
+export const MainWeather = ({ cities, onSearch, hourlyData, eightDayData }) => {
   const firstCity = cities[0];
 
   return (
@@ -20,7 +20,7 @@ export const MainWeather = ({ cities, onSearch, hourlyData }) => {
 
       <HourlyForecast hourlyData={hourlyData} />
 
-      <EightDayForecast />
+      <EightDayForecast data={eightDayData} />
 
       <InteractingPets />
 
