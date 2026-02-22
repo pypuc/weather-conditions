@@ -22,15 +22,17 @@ function App() {
   async function getWeather(cityName) {
     try {
       const weatherData = await fetchCurrentWeather(cityName);
-      if (!weatherData || !weatherData.id) return;
+      if (weatherData == null) return;
+      if (weatherData.id == null) return;
 
       setCities((prev) => {
-        const filtered = prev.filter((dat) => dat.id !== weatherData.id);
+        const filtered = prev.filter((city) => city.id !== weatherData.id);
         return [weatherData, ...filtered].slice(0, 3);
       });
 
       const forecastData = await fetchHourlyForecast(cityName);
-      if (!forecastData || !forecastData.list) return;
+     if (forecastData == null) return;
+if (forecastData.list == null) return;
 
       const formattedHourly = forecastData.list.slice(0, 8).map((item) => ({
         time: item.dt_txt.slice(11, 16),
@@ -44,7 +46,7 @@ function App() {
       forecastData.list.forEach((item) => {
         const date = item.dt_txt.split(" ")[0];
 
-        if (!dailyMap[date]) {
+        if (dailyMap[date] === undefined) {
           dailyMap[date] = {
             min: item.main.temp_min,
             max: item.main.temp_max,
@@ -73,11 +75,14 @@ function App() {
         }));
 
       setEightDayData(formattedDaily);
-
       setShowDetails(false);
     } catch (error) {
       console.error(error);
     }
+  }
+
+  function handleDelete(id) {
+    setCities((prev) => prev.filter((city) => city.id !== id));
   }
 
   function handleLogout() {
@@ -103,6 +108,8 @@ function App() {
         showDetails={showDetails}
         setShowDetails={setShowDetails}
         openModal={() => setIsModalOpen(true)}
+        onRefresh={getWeather}
+        onDelete={handleDelete}
       />
 
       <Footer />

@@ -7,8 +7,7 @@ export const Hero = ({ onSearch }) => {
   const handleSearch = () => {
     const trimmedCity = city.trim();
     if (trimmedCity === "") return;
-
-    onSearch(trimmedCity); // 🔥 передаємо РЯДОК
+    onSearch(trimmedCity);
     setCity("");
   };
 

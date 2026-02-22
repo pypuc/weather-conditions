@@ -1,6 +1,6 @@
 import styles from "./Weather.module.css";
 
-export const Weather = ({ cities, onSeeMore }) => {
+export const Weather = ({ cities, onSeeMore, onRefresh, onDelete }) => {
   if (!cities || cities.length === 0) {
     return (
       <section className={styles.weather}>
@@ -22,8 +22,7 @@ export const Weather = ({ cities, onSeeMore }) => {
       <div className="container">
         <ul className={styles["weather-list"]}>
           {cities.map((city) => {
-            const utcNow = Date.now() + new Date().getTimezoneOffset() * 60000;
-            const localTime = new Date(utcNow + city.timezone * 1000);
+            const localTime = new Date(Date.now() + city.timezone * 1000);
 
             const date = localTime.toLocaleDateString();
             const day = localTime.toLocaleDateString("en-US", {
@@ -67,10 +66,12 @@ export const Weather = ({ cities, onSeeMore }) => {
 
                 <ul className={styles["weather-list-svg"]}>
                   <li>
-                    <img src="/images/refresh.svg" alt="refresh" />
-                  </li>
-                  <li>
-                    <img src="/images/heart.svg" alt="heart" />
+                    <img
+                      src="/images/refresh.svg"
+                      alt="refresh"
+                      onClick={() => onRefresh(city.name)}
+                      style={{ cursor: "pointer" }}
+                    />
                   </li>
                   <li>
                     <button
@@ -81,8 +82,14 @@ export const Weather = ({ cities, onSeeMore }) => {
                       See more
                     </button>
                   </li>
+
                   <li>
-                    <img src="/images/delete.svg" alt="delete" />
+                    <img
+                      src="/images/delete.svg"
+                      alt="delete"
+                      onClick={() => onDelete(city.id)}
+                      style={{ cursor: "pointer" }}
+                    />
                   </li>
                 </ul>
               </li>

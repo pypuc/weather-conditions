@@ -16,6 +16,8 @@ export const MainWeather = ({
   showDetails,
   setShowDetails,
   openModal,
+  onRefresh,
+  onDelete,
 }) => {
   const firstCity = cities[0];
 
@@ -32,12 +34,15 @@ export const MainWeather = ({
     <main className={styles.main}>
       <Hero onSearch={onSearch} />
 
-      <Weather cities={cities} onSeeMore={handleSeeMore} />
+      <Weather
+        cities={cities}
+        onSeeMore={handleSeeMore}
+        onRefresh={onRefresh} 
+        onDelete={onDelete} 
+      />
 
       {showDetails && firstCity && <AllWeatherValues city={firstCity} />}
-
       {showDetails && <HourlyForecast hourlyData={hourlyData} />}
-
       {showDetails && <EightDayForecast data={eightDayData} />}
 
       <InteractingPets />
