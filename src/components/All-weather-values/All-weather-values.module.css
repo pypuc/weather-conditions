@@ -17,6 +17,10 @@
   align-items: center;
 }
 
+.wrapper-mintontext {
+  padding: 20px;
+}
+
 .wrapper-list {
   padding-top: 35px;
   padding-left: 43px;

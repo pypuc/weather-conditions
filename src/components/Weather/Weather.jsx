@@ -67,10 +67,9 @@ export const Weather = ({ cities, onSeeMore, onRefresh, onDelete }) => {
                 <ul className={styles["weather-list-svg"]}>
                   <li>
                     <img
-                      src="/images/refresh.svg"
+                      src="./images/refresh.svg"
                       alt="refresh"
                       onClick={() => onRefresh(city.name)}
-                      style={{ cursor: "pointer" }}
                     />
                   </li>
                   <li>
@@ -85,10 +84,9 @@ export const Weather = ({ cities, onSeeMore, onRefresh, onDelete }) => {
 
                   <li>
                     <img
-                      src="/images/delete.svg"
+                      src="./images/delete.svg"
                       alt="delete"
                       onClick={() => onDelete(city.id)}
-                      style={{ cursor: "pointer" }}
                     />
                   </li>
                 </ul>

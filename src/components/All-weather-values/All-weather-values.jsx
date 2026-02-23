@@ -8,7 +8,7 @@ export const AllWeatherValues = ({ city }) => {
           <div className={styles["wrapper-container"]}>
             <ul className={styles["wrapper-list"]}>
               <li className={styles["wrapper-iteam"]}>
-                <p style={{ padding: "20px" }}>
+                <p className={styles["wrapper-mintontext"]}>
                   Search city to see weather details
                 </p>
               </li>
@@ -31,7 +31,7 @@ export const AllWeatherValues = ({ city }) => {
               </h3>
               <img
                 className={styles["wrapper-img"]}
-                src="/images/thermometer.png"
+                src="./images/thermometer.png"
                 alt="thermometer"
               />
             </li>
@@ -59,7 +59,7 @@ export const AllWeatherValues = ({ city }) => {
               <h3 className={styles["wrapper-title"]}>{city.main.humidity}%</h3>
               <img
                 className={styles["wrapper-img"]}
-                src="/images/cloud.png"
+                src="./images/cloud.png"
                 alt="cloud"
               />
             </li>
@@ -71,7 +71,7 @@ export const AllWeatherValues = ({ city }) => {
               </h3>
               <img
                 className={styles["wrapper-img"]}
-                src="/images/pressure.png"
+                src="./images/pressure.png"
                 alt="pressure"
               />
             </li>
@@ -81,7 +81,7 @@ export const AllWeatherValues = ({ city }) => {
               <h3 className={styles["wrapper-title"]}>{city.wind.speed} m/s</h3>
               <img
                 className={styles["wrapper-img"]}
-                src="/images/wind-speed.png"
+                src="./images/wind-speed.png"
                 alt="wind-speed"
               />
             </li>
@@ -93,7 +93,7 @@ export const AllWeatherValues = ({ city }) => {
               </h3>
               <img
                 className={styles["wrapper-img"]}
-                src="/images/visibility.png"
+                src="./images/visibility.png"
                 alt="visibility"
               />
             </li>

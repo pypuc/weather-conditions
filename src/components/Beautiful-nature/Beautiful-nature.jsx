@@ -37,7 +37,7 @@ export const BeautifulNature = () => {
           />
           <img
             className={styles["nature-img"]}
-            src="/images/evening-lake.png"
+            src="./images/evening-lake.png"
             alt=""
           />
         </div>

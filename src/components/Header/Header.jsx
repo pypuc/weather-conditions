@@ -53,7 +53,7 @@ export const Header = ({ openModal, openLogout, user }) => {
 
           <img
             className={styles["header-us"]}
-            src="/images/user.svg"
+            src="./images/user.svg"
             alt="user"
           />
         </div>
