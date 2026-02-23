@@ -29,7 +29,7 @@ export const Header = ({ openModal, openLogout, user }) => {
     <header>
       <div className="container">
         <div className={styles["header-container"]}>
-          <img src="/images/24-forecast.svg" alt="24-forecast" />
+          <img src="./images/24-forecast.svg" alt="24-forecast" />
 
           <ul className={styles["header-list"]}>
             <li>
