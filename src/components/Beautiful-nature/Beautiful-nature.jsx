@@ -7,7 +7,7 @@ export const BeautifulNature = () => {
         <h2 className={styles["nature-title"]}>Beautiful nature</h2>
         <div className={styles["nature-container"]}>
           <img className={styles["nature-img"]} src="./images/sea.png" alt="" />
-          <img className={styles["nature-img"]} src="/images/lake.png" alt="" />
+          <img className={styles["nature-img"]} src="./images/lake.png" alt="" />
           <img
             className={styles["nature-img"]}
             src="./images/forest.png"
