@@ -7,7 +7,7 @@ export const Footer = () => {
         <div className={styles["footer-bigconteiner"]}>
           <img
             className={styles["footer-img"]}
-            src="/images/24-forecast.svg"
+            src="./images/24-forecast.svg"
             alt="24-forecast"
           />
           <ul className={styles["footer-list"]}>
@@ -29,7 +29,7 @@ export const Footer = () => {
                     >
                       <img
                         className={styles["footer-logo"]}
-                        src="/images/instagram.svg"
+                        src="./images/instagram.svg"
                         alt="instagram"
                       />
                     </a>
@@ -41,7 +41,7 @@ export const Footer = () => {
                     >
                       <img
                         className={styles["footer-logo"]}
-                        src="/images/facebook.svg"
+                        src="./images/facebook.svg"
                         alt="facebook"
                       />
                     </a>
@@ -53,7 +53,7 @@ export const Footer = () => {
                     >
                       <img
                         className={styles["footer-logo"]}
-                        src="/images/whatsapp.svg"
+                        src="./images/whatsapp.svg"
                         alt="whatsapp"
                       />
                     </a>

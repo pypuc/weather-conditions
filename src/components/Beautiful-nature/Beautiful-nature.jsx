@@ -10,29 +10,29 @@ export const BeautifulNature = () => {
           <img className={styles["nature-img"]} src="/images/lake.png" alt="" />
           <img
             className={styles["nature-img"]}
-            src="/images/forest.png"
+            src="./images/forest.png"
             alt=""
           />
           <img
             className={styles["nature-img"]}
-            src="/images/hills.png"
+            src="./images/hills.png"
             alt=""
           />
           <img
             className={styles["nature-img"]}
-            src="/images/evening-lake.png"
+            src="./images/evening-lake.png"
             alt=""
           />
           <img className={styles["nature-img"]} src="/images/sea.png" alt="" />
           <img className={styles["nature-img"]} src="/images/lake.png" alt="" />
           <img
             className={styles["nature-img"]}
-            src="/images/forest.png"
+            src="./images/forest.png"
             alt=""
           />
           <img
             className={styles["nature-img"]}
-            src="/images/hills.png"
+            src="./images/hills.png"
             alt=""
           />
           <img
