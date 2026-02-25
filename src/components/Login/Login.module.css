@@ -31,7 +31,7 @@
 @media screen and (min-width: 1200px) {
   .modal {
     width: 600px;
-    height: 540px;
+    height: 450px;
     padding-top: 30px;
     border-radius: 10px;
   }

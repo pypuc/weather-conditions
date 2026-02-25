@@ -1,14 +1,13 @@
 import { useState } from "react";
 import styles from "./Sign-up.module.css";
 
-export const SignUp = ({ closeModal, setUser }) => {
+export const SignUp = ({ closeModal, openLogin, setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const userData = { username, email };
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
@@ -23,7 +22,7 @@ export const SignUp = ({ closeModal, setUser }) => {
             <img
               className={styles["modal-exit"]}
               onClick={closeModal}
-              src="./images/cross.svg"
+              src="/images/cross.svg"
               alt="exit"
             />
           </div>
@@ -34,8 +33,8 @@ export const SignUp = ({ closeModal, setUser }) => {
             <li className={styles["modal-iteam"]}>
               <h3 className={styles["modal-title"]}>Username</h3>
               <input
-                className={styles["modal-input"]}
                 placeholder="Username"
+                className={styles["modal-input"]}
                 type="text"
                 required
                 value={username}
@@ -46,8 +45,8 @@ export const SignUp = ({ closeModal, setUser }) => {
             <li className={styles["modal-iteam"]}>
               <h3 className={styles["modal-title"]}>E-Mail</h3>
               <input
-                className={styles["modal-input"]}
                 placeholder="E-Mail"
+                className={styles["modal-input"]}
                 type="email"
                 required
                 value={email}
@@ -58,8 +57,8 @@ export const SignUp = ({ closeModal, setUser }) => {
             <li className={styles["modal-iteam"]}>
               <h3 className={styles["modal-title"]}>Password</h3>
               <input
-                className={styles["modal-input"]}
                 placeholder="Password"
+                className={styles["modal-input"]}
                 type="password"
                 required
                 minLength={6}
@@ -74,10 +73,14 @@ export const SignUp = ({ closeModal, setUser }) => {
           </button>
 
           <p className={styles["modal-acount-text"]}>
-            Already have an account?{" "}
-            <a className={styles["modal-link-login"]} href="#">
+            Already have an account?
+            <button
+              type="button"
+              className={styles["modal-link-login"]}
+              onClick={openLogin}
+            >
               Log In
-            </a>
+            </button>
           </p>
         </form>
       </div>

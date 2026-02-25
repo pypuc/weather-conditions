@@ -3,6 +3,7 @@ import { Header } from "./components/Header/Header";
 import { MainWeather } from "./components/Main-weather/Main-weather";
 import { Footer } from "./components/Footer/Footer";
 import { SignUp } from "./components/Sign-up/Sign-up";
+import { Login } from "./components/Login/Login";
 import { LogoutModal } from "./components/Logout-modal/Logout-modal";
 import { fetchCurrentWeather, fetchHourlyForecast } from "./api/weatherApi";
 
@@ -12,7 +13,8 @@ function App() {
   const [eightDayData, setEightDayData] = useState([]);
   const [user, setUser] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
   useEffect(() => {
@@ -22,8 +24,7 @@ function App() {
   async function getWeather(cityName) {
     try {
       const weatherData = await fetchCurrentWeather(cityName);
-      if (weatherData == null) return;
-      if (weatherData.id == null) return;
+      if (!weatherData || !weatherData.id) return;
 
       setCities((prev) => {
         const filtered = prev.filter((city) => city.id !== weatherData.id);
@@ -31,8 +32,7 @@ function App() {
       });
 
       const forecastData = await fetchHourlyForecast(cityName);
-     if (forecastData == null) return;
-if (forecastData.list == null) return;
+      if (!forecastData || !forecastData.list) return;
 
       const formattedHourly = forecastData.list.slice(0, 8).map((item) => ({
         time: item.dt_txt.slice(11, 16),
@@ -46,7 +46,7 @@ if (forecastData.list == null) return;
       forecastData.list.forEach((item) => {
         const date = item.dt_txt.split(" ")[0];
 
-        if (dailyMap[date] === undefined) {
+        if (!dailyMap[date]) {
           dailyMap[date] = {
             min: item.main.temp_min,
             max: item.main.temp_max,
@@ -95,7 +95,8 @@ if (forecastData.list == null) return;
     <>
       <Header
         user={user}
-        openModal={() => setIsModalOpen(true)}
+        openModal={() => setIsSignUpOpen(true)}
+        openLogin={() => setIsLoginOpen(true)}
         openLogout={() => setIsLogoutOpen(true)}
       />
 
@@ -107,15 +108,37 @@ if (forecastData.list == null) return;
         user={user}
         showDetails={showDetails}
         setShowDetails={setShowDetails}
-        openModal={() => setIsModalOpen(true)}
+        openModal={() => setIsSignUpOpen(true)}
         onRefresh={getWeather}
         onDelete={handleDelete}
       />
 
       <Footer />
 
-      {isModalOpen && (
-        <SignUp closeModal={() => setIsModalOpen(false)} setUser={setUser} />
+      {isSignUpOpen && (
+        <SignUp
+          closeModal={() => setIsSignUpOpen(false)}
+          openLogin={() => {
+            setIsSignUpOpen(false);
+            setTimeout(() => {
+              setIsLoginOpen(true);
+            }, 0);
+          }}
+          setUser={setUser}
+        />
+      )}
+
+      {isLoginOpen && (
+        <Login
+          closeModal={() => setIsLoginOpen(false)}
+          openSignUp={() => {
+            setIsLoginOpen(false);
+            setTimeout(() => {
+              setIsSignUpOpen(true);
+            }, 0);
+          }}
+          setUser={setUser}
+        />
       )}
 
       {isLogoutOpen && (
