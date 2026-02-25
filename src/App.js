@@ -41,38 +41,39 @@ function App() {
 
       setHourlyData(formattedHourly);
 
-      const dailyMap = {};
+      const dailyArray = [];
 
       forecastData.list.forEach((item) => {
         const date = item.dt_txt.split(" ")[0];
 
-        if (!dailyMap[date]) {
-          dailyMap[date] = {
+        const existingDay = dailyArray.find((day) => day.date === date);
+
+        if (!existingDay) {
+          dailyArray.push({
+            date,
             min: item.main.temp_min,
             max: item.main.temp_max,
             description: item.weather[0].description,
             icon: item.weather[0].icon,
             dt: item.dt,
-          };
+          });
         } else {
-          dailyMap[date].min = Math.min(dailyMap[date].min, item.main.temp_min);
-          dailyMap[date].max = Math.max(dailyMap[date].max, item.main.temp_max);
+          existingDay.min = Math.min(existingDay.min, item.main.temp_min);
+          existingDay.max = Math.max(existingDay.max, item.main.temp_max);
         }
       });
 
-      const formattedDaily = Object.values(dailyMap)
-        .slice(0, 8)
-        .map((day) => ({
-          date: new Date(day.dt * 1000).toLocaleDateString("en-US", {
-            weekday: "short",
-            month: "short",
-            day: "numeric",
-          }),
-          min: Math.round(day.min),
-          max: Math.round(day.max),
-          description: day.description,
-          icon: day.icon,
-        }));
+      const formattedDaily = dailyArray.slice(0, 8).map((day) => ({
+        date: new Date(day.dt * 1000).toLocaleDateString("en-US", {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+        }),
+        min: Math.round(day.min),
+        max: Math.round(day.max),
+        description: day.description,
+        icon: day.icon,
+      }));
 
       setEightDayData(formattedDaily);
       setShowDetails(false);

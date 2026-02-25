@@ -5,12 +5,26 @@ export const SignUp = ({ closeModal, openLogin, setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userData = { username, email };
-    localStorage.setItem("user", JSON.stringify(userData));
-    setUser(userData);
+
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    const emailExists = existingUsers.find((user) => user.email === email);
+
+    if (emailExists) {
+      setError("This email is already registered");
+      return;
+    }
+
+    const newUser = { username, email, password };
+    const updatedUsers = [...existingUsers, newUser];
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+    setUser(newUser);
     closeModal();
   };
 
@@ -50,8 +64,18 @@ export const SignUp = ({ closeModal, openLogin, setUser }) => {
                 type="email"
                 required
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError("");
+                }}
               />
+              {error && (
+                <p
+                  className={styles["modal-error"]}
+                >
+                  {error}
+                </p>
+              )}
             </li>
 
             <li className={styles["modal-iteam"]}>
