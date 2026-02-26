@@ -20,7 +20,7 @@ export const SignUp = ({ closeModal, openLogin, setUser }) => {
     }
 
     const newUser = { username, email, password };
-    const updatedUsers = [...existingUsers, newUser];
+    const updatedUsers = existingUsers.concat(newUser);
 
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 

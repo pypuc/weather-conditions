@@ -33,17 +33,17 @@ export const Header = ({ openModal, openLogout, user }) => {
 
           <ul className={styles["header-list"]}>
             <li>
-              <a href="" className={styles["header-share"]}>
+              <a href="#footer" className={styles["header-share"]}>
                 Who we are
               </a>
             </li>
             <li>
-              <a href="" className={styles["header-share"]}>
+              <a href="#footer" className={styles["header-share"]}>
                 Contacts
               </a>
             </li>
             <li>
-              <a href="" className={styles["header-share"]}>
+              <a href="#hero" className={styles["header-share"]}>
                 Menu
               </a>
             </li>

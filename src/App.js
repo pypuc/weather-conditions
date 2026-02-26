@@ -28,7 +28,7 @@ function App() {
 
       setCities((prev) => {
         const filtered = prev.filter((city) => city.id !== weatherData.id);
-        return [weatherData, ...filtered].slice(0, 3);
+        return [weatherData].concat(filtered).slice(0, 3);
       });
 
       const forecastData = await fetchHourlyForecast(cityName);

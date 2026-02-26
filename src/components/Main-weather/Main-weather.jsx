@@ -37,8 +37,8 @@ export const MainWeather = ({
       <Weather
         cities={cities}
         onSeeMore={handleSeeMore}
-        onRefresh={onRefresh} 
-        onDelete={onDelete} 
+        onRefresh={onRefresh}
+        onDelete={onDelete}
       />
 
       {showDetails && firstCity && <AllWeatherValues city={firstCity} />}

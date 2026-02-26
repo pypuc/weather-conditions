@@ -18,7 +18,7 @@ export const Hero = ({ onSearch }) => {
   };
 
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <div className="container">
         <div className={styles["hero-container"]}>
           <h1 className={styles["hero-title"]}>Weather dashboard</h1>
