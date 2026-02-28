@@ -25,10 +25,12 @@ export const Hero = ({ onSearch }) => {
 
           <ul className={styles["hero-list"]}>
             <li className={styles["hero-iteam"]}>
-              <p className={styles["hero-text"]}>
-                Create your personal list of favorite cities and always be aware
-                of the weather.
-              </p>
+              <div className={styles["hero-minidiv"]}>
+                <p className={styles["hero-text"]}>
+                  Create your personal list of favorite cities and always be
+                  aware of the weather.
+                </p>
+              </div>
             </li>
             <li className={styles["hero-iteam"]}>
               <p className={styles["hero-minitext"]}>

@@ -36,7 +36,7 @@ export const SignUp = ({ closeModal, openLogin, setUser }) => {
             <img
               className={styles["modal-exit"]}
               onClick={closeModal}
-              src="/images/cross.svg"
+              src="./images/cross.svg"
               alt="exit"
             />
           </div>
