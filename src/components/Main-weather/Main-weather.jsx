@@ -18,6 +18,7 @@ export const MainWeather = ({
   openModal,
   onRefresh,
   onDelete,
+  currentDate,
 }) => {
   const firstCity = cities[0];
 
@@ -26,13 +27,12 @@ export const MainWeather = ({
       openModal();
       return;
     }
-
     setShowDetails(true);
   };
 
   return (
     <main className={styles.main}>
-      <Hero onSearch={onSearch} />
+      <Hero onSearch={onSearch} currentDate={currentDate} />
 
       <Weather
         cities={cities}

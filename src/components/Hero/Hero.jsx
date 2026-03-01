@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Hero.module.css";
 
-export const Hero = ({ onSearch }) => {
+export const Hero = ({ onSearch, currentDate }) => {
   const [city, setCity] = useState("");
 
   const handleSearch = () => {
@@ -33,9 +33,7 @@ export const Hero = ({ onSearch }) => {
               </div>
             </li>
             <li className={styles["hero-iteam"]}>
-              <p className={styles["hero-minitext"]}>
-                October 2023 Friday, 13th
-              </p>
+              <p className={styles["hero-minitext"]}>{currentDate}</p>
             </li>
           </ul>
 

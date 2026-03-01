@@ -11,6 +11,7 @@ function App() {
   const [cities, setCities] = useState([]);
   const [hourlyData, setHourlyData] = useState([]);
   const [eightDayData, setEightDayData] = useState([]);
+  const [currentDate, setCurrentDate] = useState("");
   const [user, setUser] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -25,6 +26,19 @@ function App() {
     try {
       const weatherData = await fetchCurrentWeather(cityName);
       if (!weatherData || !weatherData.id) return;
+
+      // 🔥 Форматуємо дату з API
+      const formattedDate = new Date(weatherData.dt * 1000).toLocaleDateString(
+        "en-US",
+        {
+          year: "numeric",
+          month: "long",
+          weekday: "long",
+          day: "numeric",
+        },
+      );
+
+      setCurrentDate(formattedDate);
 
       setCities((prev) => {
         const filtered = prev.filter((city) => city.id !== weatherData.id);
@@ -45,7 +59,6 @@ function App() {
 
       forecastData.list.forEach((item) => {
         const date = item.dt_txt.split(" ")[0];
-
         const existingDay = dailyArray.find((day) => day.date === date);
 
         if (!existingDay) {
@@ -112,6 +125,7 @@ function App() {
         openModal={() => setIsSignUpOpen(true)}
         onRefresh={getWeather}
         onDelete={handleDelete}
+        currentDate={currentDate}
       />
 
       <Footer />
@@ -121,9 +135,7 @@ function App() {
           closeModal={() => setIsSignUpOpen(false)}
           openLogin={() => {
             setIsSignUpOpen(false);
-            setTimeout(() => {
-              setIsLoginOpen(true);
-            }, 0);
+            setTimeout(() => setIsLoginOpen(true), 0);
           }}
           setUser={setUser}
         />
@@ -134,9 +146,7 @@ function App() {
           closeModal={() => setIsLoginOpen(false)}
           openSignUp={() => {
             setIsLoginOpen(false);
-            setTimeout(() => {
-              setIsSignUpOpen(true);
-            }, 0);
+            setTimeout(() => setIsSignUpOpen(true), 0);
           }}
           setUser={setUser}
         />

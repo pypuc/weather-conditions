@@ -32,6 +32,7 @@ margin-bottom: 40px;
 .pets-img {
     width: 270px;
     height: 208px;
+    border-radius: 10px;
 }
 
 .pets-text {
