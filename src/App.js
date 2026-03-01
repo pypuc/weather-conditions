@@ -26,8 +26,7 @@ function App() {
     try {
       const weatherData = await fetchCurrentWeather(cityName);
       if (!weatherData || !weatherData.id) return;
-
-      // 🔥 Форматуємо дату з API
+      
       const formattedDate = new Date(weatherData.dt * 1000).toLocaleDateString(
         "en-US",
         {
